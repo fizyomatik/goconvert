@@ -1,0 +1,14 @@
+# Compiled binaries
+*.exe
+*.exe~
+goconvert
+
+# Build output
+/dist/
+
+# IDE
+.idea/
+.vscode/
+
+# Test output
+*.out
