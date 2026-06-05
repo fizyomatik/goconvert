@@ -35,7 +35,12 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Error opening input file: %s\n", err)
 			os.Exit(1)
 		}
-		defer reader.Close()
+		defer func(reader *os.File) {
+			err := reader.Close()
+			if err != nil {
+
+			}
+		}(reader)
 	}
 
 	var writer *os.File
@@ -47,7 +52,12 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Error creating output file: %s\n", err)
 			os.Exit(1)
 		}
-		defer writer.Close()
+		defer func(writer *os.File) {
+			err := writer.Close()
+			if err != nil {
+
+			}
+		}(writer)
 	}
 
 	if err := converter.Convert(reader, writer); err != nil {
