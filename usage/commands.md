@@ -9,7 +9,7 @@ Here are the 5 execution modes our engine supports:
 goconvert -from=json -to=yaml config.json config.yaml
 
 ### 2. Standard Mode
-goconvert -from config.json -to config.md
+goconvert -from="config.json" -to=config.md"
 
 ### 3. Smart Extension Auto-Detection (Zero-Flag)
 goconvert config.json convertedConfig.xml

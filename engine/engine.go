@@ -1,0 +1,26 @@
+package engine
+
+import (
+	"fmt"
+	"goconvert/formats"
+	"io"
+)
+
+// Converter is the interface that every format pair must implement.
+// Convert reads from r and writes the converted output to w.
+type Converter interface {
+	Convert(r io.Reader, w io.Writer) error
+}
+
+// Select returns the right Converter for the given from/to format pair.
+// Returns an error if the pair is not supported.
+func Select(from, to string) (Converter, error) {
+	switch from + "->" + to {
+	case "json->yaml":
+		return &formats.JSONToYAML{}, nil
+	case "yaml->json":
+		return &formats.YAMLToJSON{}, nil
+	default:
+		return nil, fmt.Errorf("unsupported conversion: %s -> %s", from, to)
+	}
+}
