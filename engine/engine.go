@@ -20,6 +20,26 @@ func Select(from, to string) (Converter, error) {
 		return &formats.JSONToYAML{}, nil
 	case "yaml->json":
 		return &formats.YAMLToJSON{}, nil
+	case "json->xml":
+		return &formats.JSONToXML{}, nil
+	case "xml->json":
+		return &formats.XMLToJSON{}, nil
+	case "yaml->xml":
+		return &formats.YAMLToXML{}, nil
+	case "xml->yaml":
+		return &formats.XMLToYAML{}, nil
+	case "json->csv":
+		return &formats.JSONToCSV{}, nil
+	case "csv->json":
+		return &formats.CSVToJSON{}, nil
+	case "yaml->csv":
+		return &formats.YAMLToCSV{}, nil
+	case "csv->yaml":
+		return &formats.CSVToYAML{}, nil
+	case "csv->md":
+		return &formats.CSVToMD{}, nil
+	case "md->csv":
+		return &formats.MDToCSV{}, nil
 	default:
 		return nil, fmt.Errorf("unsupported conversion: %s -> %s", from, to)
 	}
