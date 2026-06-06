@@ -13,12 +13,9 @@ A simple command-line tool written in Go that converts data files between format
 | XML  | JSON |
 
 ## Installation
-
 ```bash
-go build .
+go install github.com/fizyomatik/goconvert@latest
 ```
-
-This produces `goconvert.exe` on Windows, `goconvert` on Linux/macOS.
 
 ## Usage
 
