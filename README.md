@@ -12,6 +12,8 @@ A simple command-line tool written in Go that converts data files between format
 | YAML | XML |
 | XML  | JSON |
 
+This is just the beginning...
+
 ## Quickstart
 ```bash
 go install github.com/fizyomatik/goconvert@latest
