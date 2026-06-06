@@ -12,3 +12,14 @@ goconvert
 
 # Test output
 *.out
+
+#Environment
+.env
+.env.*
+
+#Go test cache
+*.test
+
+# Go coverage
+coverage.out
+coverage.html
