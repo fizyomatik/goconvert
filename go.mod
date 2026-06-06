@@ -1,4 +1,4 @@
-module goconvert
+module github.com/fizyomatik/goconvert
 
 go 1.23.0
 

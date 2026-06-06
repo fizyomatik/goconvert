@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"goconvert/cli"
-	"goconvert/engine"
+	"github.com/fizyomatik/goconvert/cli"
+	"github.com/fizyomatik/goconvert/engine"
 )
 
 func main() {

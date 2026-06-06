@@ -2,8 +2,9 @@ package engine
 
 import (
 	"fmt"
-	"goconvert/formats"
 	"io"
+
+	"github.com/fizyomatik/goconvert/formats"
 )
 
 // Converter is the interface that every format pair must implement.
