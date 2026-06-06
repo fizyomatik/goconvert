@@ -11,18 +11,18 @@ import (
 func main() {
 	config, err := cli.ParseCLI(os.Args)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Error: %s\n", err)
 		os.Exit(1)
 	}
 
 	if config.From == "" || config.To == "" {
-		fmt.Fprintf(os.Stderr, "Error: -from and -to flags are required\n")
+		_, _ = fmt.Fprintf(os.Stderr, "Error: -from and -to flags are required\n")
 		os.Exit(1)
 	}
 
 	converter, err := engine.Select(config.From, config.To)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: %s\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Error: %s\n", err)
 		os.Exit(1)
 	}
 
@@ -32,7 +32,7 @@ func main() {
 	} else {
 		reader, err = os.Open(config.InputFile)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error opening input file: %s\n", err)
+			_, _ = fmt.Fprintf(os.Stderr, "Error opening input file: %s\n", err)
 			os.Exit(1)
 		}
 		defer func(reader *os.File) {
@@ -49,7 +49,7 @@ func main() {
 	} else {
 		writer, err = os.Create(config.OutputFile)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, "Error creating output file: %s\n", err)
+			_, _ = fmt.Fprintf(os.Stderr, "Error creating output file: %s\n", err)
 			os.Exit(1)
 		}
 		defer func(writer *os.File) {
@@ -61,11 +61,11 @@ func main() {
 	}
 
 	if err := converter.Convert(reader, writer); err != nil {
-		fmt.Fprintf(os.Stderr, "Error converting: %s\n", err)
+		_, _ = fmt.Fprintf(os.Stderr, "Error converting: %s\n", err)
 		os.Exit(1)
 	}
 
 	if config.OutputFile != "" {
-		fmt.Fprintf(os.Stdout, "Done! Output written to %s\n", config.OutputFile)
+		_, _ = fmt.Fprintf(os.Stdout, "Done! Output written to %s\n", config.OutputFile)
 	}
 }
