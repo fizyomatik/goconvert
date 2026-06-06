@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-var SupportedFormats = []string{"json", "yaml", "xml", "csv", "md"}
+var SupportedFormats = []string{"json", "yaml", "xml"}
 
 type Config struct {
 	From       string
