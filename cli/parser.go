@@ -49,8 +49,8 @@ func ParseCLI(args []string) (*Config, error) {
 		fs := flag.NewFlagSet("goconvert", flag.ContinueOnError)
 
 		fs.StringVar(&config.From, "from", "", "the source format (e.g. json, yaml, xml, csv, md)")
-		fs.StringVar(&config.InputFile, "in", "", "the file to read data from")
 		fs.StringVar(&config.To, "to", "", "the destination format (e.g. json, yaml, xml, csv, md)")
+		fs.StringVar(&config.InputFile, "in", "", "the file to read data from")
 		fs.StringVar(&config.OutputFile, "out", "", "the file to write data to")
 
 		if err := fs.Parse(args[1:]); err != nil {
